@@ -1,6 +1,8 @@
 # 🚢 NSR-Aegis: Panama Canal Digital Twin
 **Autonomous Cyber-Physical Logistics & Hydrological Forecasting**
 
+🎥 **[Watch the Pitch & Live Demo Here](https://www.youtube.com/watch?v=Ba4JWdOrQhM)**
+
 ![System Status](https://img.shields.io/badge/Status-Operational-00FFCC?style=for-the-badge)
 ![AI Engine](https://img.shields.io/badge/AI_Engine-Random_Forest-7000FF?style=for-the-badge)
 ![Hardware](https://img.shields.io/badge/Hardware-ESP32%20Telemetry-FF0055?style=for-the-badge)
