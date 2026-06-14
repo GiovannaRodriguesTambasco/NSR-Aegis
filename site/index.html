@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>NSR-Aegis | Panama Canal Digital Twin</title>
+  <meta name="description" content="NSR-Aegis — decision intelligence for Panama Canal transit under drought, draft restriction and congestion pressure."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SIDE NAV
+════════════════════════════════════════════════════════════ -->
+<nav class="sidenav" id="sidenav" aria-label="Main navigation">
+  <div class="sidenav-header">
+    <div class="sidenav-logo">NSR<span>·</span>AEGIS</div>
+    <div class="sidenav-sub">Panama Canal Digital Twin</div>
+  </div>
+
+  <!-- OVERVIEW group -->
+  <div class="nav-group open" id="grp-overview">
+    <button class="sidenav-section-label" type="button" data-group="grp-overview" aria-expanded="true">
+      <span>Overview</span>
+      <span class="accordion-icon">▼</span>
+    </button>
+    <div class="nav-items">
+      <button class="sidenav-item active" type="button" data-panel="home" data-group="grp-overview">
+        <span class="sni-code">00</span><span class="sni-label">Home</span>
+      </button>
+      <button class="sidenav-item" type="button" data-panel="about" data-group="grp-overview">
+        <span class="sni-code">01</span><span class="sni-label">About</span>
+      </button>
+      <button class="sidenav-item" type="button" data-panel="intelligence" data-group="grp-overview">
+        <span class="sni-code">02</span><span class="sni-label">Decision Surface</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- OPERATIONS group -->
+  <div class="nav-group" id="grp-operations">
+    <button class="sidenav-section-label" type="button" data-group="grp-operations" aria-expanded="false">
+      <span>Operations</span>
+      <span class="accordion-icon">▼</span>
+    </button>
+    <div class="nav-items">
+      <button class="sidenav-item" type="button" data-panel="engine" data-group="grp-operations">
+        <span class="sni-code">03</span><span class="sni-label">Forecast Engine</span>
+      </button>
+      <button class="sidenav-item" type="button" data-panel="analysis" data-group="grp-operations">
+        <span class="sni-code">04</span><span class="sni-label">Operating Analysis</span>
+      </button>
+      <button class="sidenav-item" type="button" data-panel="command" data-group="grp-operations">
+        <span class="sni-code">05</span><span class="sni-label">Command Matrix</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- SYSTEMS group -->
+  <div class="nav-group" id="grp-systems">
+    <button class="sidenav-section-label" type="button" data-group="grp-systems" aria-expanded="false">
+      <span>Systems</span>
+      <span class="accordion-icon">▼</span>
+    </button>
+    <div class="nav-items">
+      <button class="sidenav-item" type="button" data-panel="bridge" data-group="grp-systems">
+        <span class="sni-code">06</span><span class="sni-label">Bridge & Locks</span>
+      </button>
+      <button class="sidenav-item" type="button" data-panel="engineering" data-group="grp-systems">
+        <span class="sni-code">07</span><span class="sni-label">Engineering</span>
+      </button>
+      <button class="sidenav-item" type="button" data-panel="commercial" data-group="grp-systems">
+        <span class="sni-code">08</span><span class="sni-label">Commercial</span>
+      </button>
+      <button class="sidenav-item" type="button" data-panel="commander" data-group="grp-systems">
+        <span class="sni-code">09</span><span class="sni-label">Commander</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- AUDIT group -->
+  <div class="nav-group" id="grp-audit">
+    <button class="sidenav-section-label" type="button" data-group="grp-audit" aria-expanded="false">
+      <span>Audit</span>
+      <span class="accordion-icon">▼</span>
+    </button>
+    <div class="nav-items">
+      <button class="sidenav-item" type="button" data-panel="audit" data-group="grp-audit">
+        <span class="sni-code">10</span><span class="sni-label">AI Audit</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="sidenav-footer">
+    <div class="sidenav-status"><span class="status-dot"></span>SYSTEM ONLINE</div>
+    <div class="sidenav-version">MVP v1.0</div>
+  </div>
+</nav>
+
+<button class="mobile-nav-toggle" id="mobileNavToggle" type="button" aria-label="Open navigation" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════════════════════════════ -->
+<main id="mainContent">
+
+  <!-- 00 · HOME ─────────────────────────────────────────────── -->
+  <section class="panel panel-home active" id="panel-home" data-panel="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <header class="hero-topbar">
+      <div class="hero-logo">NSR<span>·</span>AEGIS</div>
+      <div class="hero-sys"><span class="status-dot"></span>SYSTEM ONLINE</div>
+    </header>
+
+    <div class="hero-body">
+      <div class="hero-eyebrow">Panama Canal Digital Twin · Decision Intelligence Platform</div>
+      <h1 class="hero-title">NSR-AEGIS</h1>
+      <p class="hero-desc">
+        A decision intelligence platform for Canal transit under drought, draft restriction
+        and congestion pressure. The system forecasts Gatun Lake level, maximum allowable
+        draft and lock-transit hull stress before a fleet commits millions to waiting,
+        auctioning a slot or diverting south.
+      </p>
+      <div class="hero-cta-row">
+        <button class="btn-primary" type="button" data-panel="engine">Run Forecast →</button>
+        <button class="btn-ghost" type="button" data-panel="about">Learn More</button>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-val">26.1 m</span><span class="hstat-label">Gatun Lake Level</span></div>
+      <div class="hstat"><span class="hstat-val">13.6 m</span><span class="hstat-label">Max Draft</span></div>
+      <div class="hstat"><span class="hstat-val">34 MPa</span><span class="hstat-label">Lock Stress</span></div>
+      <div class="hstat"><span class="hstat-val">$2.1M</span><span class="hstat-label">Avg. Transit Cost</span></div>
+    </div>
+
+    <div class="hero-photo-credit">
+      Photo: Gatun Locks — Stan Shebs / Wikimedia Commons
+    </div>
+  </section>
+
+  <!-- 01 · ABOUT ────────────────────────────────────────────── -->
+  <section class="panel panel-page" id="panel-about" data-panel="about">
+    <div class="page-hero page-hero--light">
+      <span class="page-kicker">The Focused MVP</span>
+      <h2>One canal. One bottleneck.<br>One billion-dollar decision.</h2>
+    </div>
+    <div class="page-body">
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            The project pivots from broad polar routing to the world's most commercially sensitive
+            waterway. Panama is a sharper MVP: drought compresses draft, queue auctions distort
+            voyage economics, and every transit decision becomes a tradeoff between time, fuel,
+            insurance and customer penalty.
+          </p>
+          <p>
+            NSR-Aegis converts climate and oceanographic telemetry into an operational
+            recommendation — accept Panama transit, reduce draft and wait, bid for priority,
+            or trigger tactical diversion via the Strait of Magellan.
+          </p>
+        </div>
+        <div class="about-facts">
+          <div class="fact-card">
+            <div class="fact-num">$800M+</div>
+            <div class="fact-label">Annual toll revenue at risk during drought years</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-num">13,000+</div>
+            <div class="fact-label">Vessels transit the Panama Canal each year</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-num">6%</div>
+            <div class="fact-label">Global seaborne trade passes through the Canal</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-num">36h</div>
+            <div class="fact-label">Average anchorage wait during peak drought</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · DECISION SURFACE ─────────────────────────────────── -->
+  <section class="panel panel-page panel-dark" id="panel-intelligence" data-panel="intelligence">
+    <div class="page-hero page-hero--dark">
+      <span class="page-kicker">Decision Surface</span>
+      <h2>From climate signal<br>to fleet action.</h2>
+    </div>
+    <div class="page-body">
+      <div class="signal-grid">
+        <div class="signal-card">
+          <span class="signal-num">01</span>
+          <h3>Hydrology</h3>
+          <p>Rainfall, evaporation, El Niño SST anomaly and lake level feeding the forecast pipeline.</p>
+        </div>
+        <div class="signal-card">
+          <span class="signal-num">02</span>
+          <h3>Draft</h3>
+          <p>Freshwater allowance, tidal anomaly and maximum allowable vessel draft calculation.</p>
+        </div>
+        <div class="signal-card">
+          <span class="signal-num">03</span>
+          <h3>Transit Stress</h3>
+          <p>Lock maneuvering loads, wind, visibility constraints and hull stress envelope.</p>
+        </div>
+        <div class="signal-card">
+          <span class="signal-num">04</span>
+          <h3>Commercial Route</h3>
+          <p>Wait, bid for priority slot, reduce draft and slow-steam, or divert via Magellan.</p>
+        </div>
+      </div>
+      <div class="intel-canvas-wrap">
+        <canvas id="lakeGauge" aria-label="Animated Gatun Lake level visualization"></canvas>
+        <div class="intel-canvas-label">GATUN LAKE — LIVE LEVEL SIMULATION</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · FORECAST ENGINE ──────────────────────────────────── -->
+  <section class="panel panel-page" id="panel-engine" data-panel="engine">
+    <div class="page-hero page-hero--light">
+      <span class="page-kicker">Predictive Engine</span>
+      <h2>Random Forest forecast,<br>ready for Streamlit or API use.</h2>
+    </div>
+    <div class="page-body">
+      <div class="engine-layout">
+        <form class="control-panel" id="predictionForm">
+          <div class="cp-title">INPUT PARAMETERS</div>
+
+          <label class="cp-field">
+            <span class="cp-label">Month</span>
+            <select name="month" id="monthInput" class="cp-input">
+              <option value="1">January</option><option value="2">February</option>
+              <option value="3">March</option><option value="4">April</option>
+              <option value="5">May</option><option value="6">June</option>
+              <option value="7">July</option><option value="8" selected>August</option>
+              <option value="9">September</option><option value="10">October</option>
+              <option value="11">November</option><option value="12">December</option>
+            </select>
+          </label>
+
+          <label class="cp-field">
+            <span class="cp-label">Precipitation (mm)</span>
+            <input type="range" name="precipitation_mm" id="precipInput" min="0" max="600" value="210" step="5" class="cp-range"/>
+            <span class="cp-val-display" id="precipVal">210 mm</span>
+          </label>
+
+          <label class="cp-field">
+            <span class="cp-label">Avg. Temperature (°C)</span>
+            <input type="range" name="avg_temp_c" id="tempInput" min="22" max="34" value="28.7" step="0.1" class="cp-range"/>
+            <span class="cp-val-display" id="tempVal">28.7°C</span>
+          </label>
+
+          <label class="cp-field">
+            <span class="cp-label">SST Anomaly (°C)</span>
+            <input type="range" name="sst_anomaly_c" id="sstInput" min="-2" max="3" value="0.8" step="0.1" class="cp-range"/>
+            <span class="cp-val-display" id="sstVal">+0.8°C</span>
+          </label>
+
+          <button type="submit" class="btn-primary btn-full">Run Forecast</button>
+          <div class="cp-mode" id="predictionMode">— awaiting input —</div>
+        </form>
+
+        <div class="prediction-board">
+          <div class="pred-kpi">
+            <div class="pred-kpi-label">Gatun Lake Level</div>
+            <div class="pred-kpi-value" id="lakeLevel">—</div>
+            <div class="pred-kpi-unit">metres</div>
+          </div>
+          <div class="pred-kpi">
+            <div class="pred-kpi-label">Max Allowable Draft</div>
+            <div class="pred-kpi-value" id="maxDraft">—</div>
+            <div class="pred-kpi-unit">metres</div>
+          </div>
+          <div class="pred-kpi">
+            <div class="pred-kpi-label">Structural Stress</div>
+            <div class="pred-kpi-value" id="stress">—</div>
+            <div class="pred-kpi-unit">MPa</div>
+          </div>
+          <div class="pred-kpi pred-kpi-rec">
+            <div class="pred-kpi-label">Recommendation</div>
+            <div class="pred-kpi-value pred-rec-text" id="recommendation">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · OPERATING ANALYSIS ───────────────────────────────── -->
+  <section class="panel panel-page" id="panel-analysis" data-panel="analysis">
+    <div class="page-hero page-hero--light">
+      <span class="page-kicker">Operating Analysis</span>
+      <h2>Route economics and<br>transit risk matrix.</h2>
+    </div>
+    <div class="page-body">
+      <div class="analysis-grid">
+
+        <div class="an-card an-card--dark an-wide">
+          <div class="an-code">A00</div>
+          <h3>Risk Assessment</h3>
+          <dl>
+            <div><dt>Transit Risk Index</dt><dd id="transitRisk">—</dd></div>
+            <div><dt>Crew Fatigue Score</dt><dd id="crewFatigue">—</dd></div>
+            <div><dt>Dry Stress Factor</dt><dd id="dryStress">—</dd></div>
+          </dl>
+        </div>
+
+        <div class="an-card">
+          <div class="an-code">A01</div>
+          <h3>Panama Wait</h3>
+          <dl>
+            <div><dt>Queue Cost</dt><dd id="queueCost">—</dd></div>
+            <div><dt>Wait Days</dt><dd id="waitDays">—</dd></div>
+            <div><dt>Total Cost</dt><dd id="panamaCost">—</dd></div>
+          </dl>
+        </div>
+
+        <div class="an-card">
+          <div class="an-code">A02</div>
+          <h3>Auction Slot</h3>
+          <dl>
+            <div><dt>Auction Premium</dt><dd id="auctionPremium">—</dd></div>
+            <div><dt>Total Cost</dt><dd id="auctionCost">—</dd></div>
+          </dl>
+        </div>
+
+        <div class="an-card an-card--accent">
+          <div class="an-code">A03</div>
+          <h3>Magellan Divert</h3>
+          <dl>
+            <div><dt>Delta Cost</dt><dd id="magellanDelta">—</dd></div>
+            <div><dt>Total Cost</dt><dd id="magellanCost">—</dd></div>
+          </dl>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · COMMAND MATRIX ───────────────────────────────────── -->
+  <section class="panel panel-page panel-dark" id="panel-command" data-panel="command">
+    <div class="page-hero page-hero--dark">
+      <span class="page-kicker">Command Matrix</span>
+      <h2>Route decision matrix<br>and fleet verdict.</h2>
+    </div>
+    <div class="page-body">
+      <div class="route-matrix">
+        <div class="route-card">
+          <div class="route-label">OPTION 01</div>
+          <h3>Panama Wait</h3>
+          <dl>
+            <div><dt>Queue cost</dt><dd id="rm-queue">—</dd></div>
+            <div><dt>Eco-speed</dt><dd id="rm-eco">—</dd></div>
+            <div><dt>Total Cost</dt><dd id="rm-panama">—</dd></div>
+          </dl>
+        </div>
+        <div class="route-card route-card--mid">
+          <div class="route-label">OPTION 02</div>
+          <h3>Auction Slot</h3>
+          <dl>
+            <div><dt>Premium</dt><dd id="rm-auction-premium">—</dd></div>
+            <div><dt>Total Cost</dt><dd id="rm-auction">—</dd></div>
+          </dl>
+        </div>
+        <div class="route-card route-card--alt">
+          <div class="route-label">OPTION 03</div>
+          <h3>Divert Magellan</h3>
+          <dl>
+            <div><dt>Distance delta</dt><dd>+8,200 NM</dd></div>
+            <div><dt>Total Cost</dt><dd id="rm-magellan">—</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 · BRIDGE & LOCKS ───────────────────────────────────── -->
+  <section class="panel panel-page" id="panel-bridge" data-panel="bridge">
+    <div class="page-hero page-hero--light">
+      <span class="page-kicker">Bridge & Locks</span>
+      <h2>Passadiço command layer<br>adapted to Panama locks.</h2>
+    </div>
+    <div class="page-body">
+      <div class="instrument-grid">
+        <div class="inst-card">
+          <div class="inst-header"><span class="inst-code">B00</span><h3>Radar / ARPA PPI</h3></div>
+          <canvas id="radarChart" aria-label="Radar ARPA lock approach display"></canvas>
+        </div>
+        <div class="inst-card">
+          <div class="inst-header"><span class="inst-code">B05</span><h3>Propulsion Envelope</h3></div>
+          <canvas id="engineChart" aria-label="Propulsion and autopilot envelope chart"></canvas>
+        </div>
+      </div>
+      <div class="ops-grid">
+        <div class="ops-card">
+          <span class="ops-code">B01</span>
+          <h3>ARPA / Lock Approach</h3>
+          <p id="arpaLock">—</p>
+        </div>
+        <div class="ops-card">
+          <span class="ops-code">B02</span>
+          <h3>GMDSS / AIS / NAVAREA</h3>
+          <p id="commsStatus">—</p>
+        </div>
+        <div class="ops-card">
+          <span class="ops-code">B03</span>
+          <h3>Pilot & Tug Logistics</h3>
+          <p id="pilotTugStatus">—</p>
+        </div>
+        <div class="ops-card">
+          <span class="ops-code">B04</span>
+          <h3>Environmental State</h3>
+          <p id="environmentStatus">—</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 · ENGINEERING ──────────────────────────────────────── -->
+  <section class="panel panel-page" id="panel-engineering" data-panel="engineering">
+    <div class="page-hero page-hero--light">
+      <span class="page-kicker">Engineering & Survivability</span>
+      <h2>Hull stress, machinery,<br>draft margin and endurance.</h2>
+    </div>
+    <div class="page-body">
+      <div class="eng-stats">
+        <div class="eng-stat">
+          <span class="eng-stat-label">Hull Stress</span>
+          <strong class="eng-stat-val" id="engStress">—</strong>
+          <small>lock-transit MPa</small>
+        </div>
+        <div class="eng-stat">
+          <span class="eng-stat-label">Draft Margin</span>
+          <strong class="eng-stat-val" id="engDraftMargin">—</strong>
+          <small>against 14.0 m reference</small>
+        </div>
+        <div class="eng-stat">
+          <span class="eng-stat-label">Engine Efficiency</span>
+          <strong class="eng-stat-val" id="engineEfficiency">—</strong>
+          <small>RPM, drag, heat</small>
+        </div>
+        <div class="eng-stat">
+          <span class="eng-stat-label">Biofouling Drag</span>
+          <strong class="eng-stat-val" id="biofoulingDrag">—</strong>
+          <small>estimated penalty</small>
+        </div>
+      </div>
+      <div class="chart-deck">
+        <div class="chart-panel">
+          <div class="chart-header"><span class="chart-code">E00</span><h3>Stability / UKC</h3></div>
+          <canvas id="stabilityChart" aria-label="Stability, trim and under-keel clearance chart"></canvas>
+        </div>
+        <div class="chart-panel chart-wide">
+          <div class="chart-header"><span class="chart-code">E04</span><h3>Hull Fatigue Window</h3></div>
+          <canvas id="fatigueChart" aria-label="Hull fatigue and lock stress history chart"></canvas>
+        </div>
+      </div>
+      <div class="eng-notes">
+        <div class="eng-note">
+          <span class="eng-note-code">E01</span>
+          <h3>Machinery Report</h3>
+          <p>Main engine 88°C, turbocharger 420°C, shaft vibration within alert envelope.</p>
+        </div>
+        <div class="eng-note">
+          <span class="eng-note-code">E02</span>
+          <h3>Freshwater Draft Penalty</h3>
+          <p id="fwaStatus">—</p>
+        </div>
+        <div class="eng-note">
+          <span class="eng-note-code">E03</span>
+          <h3>Power Redundancy</h3>
+          <p>Navigation UPS, radar, INS and communications on segregated power rails.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · COMMERCIAL ───────────────────────────────────────── -->
+  <section class="panel panel-page panel-dark" id="panel-commercial" data-panel="commercial">
+    <div class="page-hero page-hero--dark">
+      <span class="page-kicker">Commercial Economics</span>
+      <h2>Bunker, delay, insurance,<br>emissions and customer penalty.</h2>
+    </div>
+    <div class="page-body">
+      <div class="instrument-grid">
+        <div class="inst-card inst-card--dark">
+          <div class="inst-header"><span class="inst-code">F01</span><h3>Fuel Efficiency Curve</h3></div>
+          <canvas id="fuelCurveChart" aria-label="Fuel consumption and eco-speed chart"></canvas>
+        </div>
+        <div class="inst-card inst-card--dark">
+          <div class="inst-header"><span class="inst-code">F02</span><h3>CO₂ & Delay Exposure</h3></div>
+          <canvas id="emissionsChart" aria-label="Carbon emissions and delay exposure chart"></canvas>
+        </div>
+      </div>
+      <div class="commercial-ledger">
+        <div class="ledger-row"><span>Bunker Burn</span><strong id="bunkerBurn">—</strong></div>
+        <div class="ledger-row"><span>Eco-Speed</span><strong id="ecoSpeed">—</strong></div>
+        <div class="ledger-row"><span>Delay Penalty</span><strong id="delayPenalty">—</strong></div>
+        <div class="ledger-row"><span>CO₂ Exposure</span><strong id="co2Exposure">—</strong></div>
+        <div class="ledger-row"><span>Insurance Posture</span><strong id="insurancePosture">—</strong></div>
+        <div class="ledger-row"><span>Recommendation</span><strong id="commercialRecommendation">—</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 · COMMANDER ────────────────────────────────────────── -->
+  <section class="panel panel-page" id="panel-commander" data-panel="commander">
+    <div class="page-hero page-hero--light">
+      <span class="page-kicker">Commander View</span>
+      <h2>Strategic variables<br>beyond pure navigation.</h2>
+    </div>
+    <div class="page-body">
+      <div class="commander-grid">
+        <div class="cmdr-card">
+          <span class="cmdr-icon">💰</span>
+          <h3>Economics</h3>
+          <p>Bunker burn, eco-speed, queue cost and auction premium impact on voyage P&L.</p>
+        </div>
+        <div class="cmdr-card">
+          <span class="cmdr-icon">⚓</span>
+          <h3>Port Operations</h3>
+          <p>Berthing slots, pilots, tugs, tide windows and anchorage time coordination.</p>
+        </div>
+        <div class="cmdr-card">
+          <span class="cmdr-icon">👥</span>
+          <h3>Human Factors</h3>
+          <p>Fatigue monitoring, STCW rest compliance, provisions and telemedicine access.</p>
+        </div>
+        <div class="cmdr-card">
+          <span class="cmdr-icon">🛡</span>
+          <h3>External Risk</h3>
+          <p>Conflict advisories, piracy zones, ECA fuel switch rules and local regulations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · AI AUDIT ─────────────────────────────────────────── -->
+  <section class="panel panel-page" id="panel-audit" data-panel="audit">
+    <div class="page-hero page-hero--light">
+      <span class="page-kicker">AI Audit & Acceptance Criteria</span>
+      <h2>Explainable decision trail<br>for judges and stakeholders.</h2>
+    </div>
+    <div class="page-body">
+      <div class="audit-timeline">
+        <div class="audit-step">
+          <div class="audit-step-num">01</div>
+          <h3>Dataset Ingestion</h3>
+          <p>2015–2025 Panama climate, lake, draft and hull-stress dataset loaded from local CSV.</p>
+        </div>
+        <div class="audit-step">
+          <div class="audit-step-num">02</div>
+          <h3>Predictive Model</h3>
+          <p>RandomForestRegressor predicts Gatun Lake level, maximum allowable draft and structural stress.</p>
+        </div>
+        <div class="audit-step">
+          <div class="audit-step-num">03</div>
+          <h3>Physical Veto</h3>
+          <p id="physicalVeto">—</p>
+        </div>
+        <div class="audit-step">
+          <div class="audit-step-num">04</div>
+          <h3>Commercial Verdict</h3>
+          <p id="commercialVerdict">—</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="sidenav-overlay" id="sidenavOverlay" aria-hidden="true"></div>
+<script src="app.js"></script>
+</body>
+</html>
